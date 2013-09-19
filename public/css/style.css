@@ -1,131 +1,24 @@
-body {
-	margin: 35px auto;
-	width: 840px;
-}
-
-header {
-	text-align: center;
-	margin: 0 0 20px;
-}
-
-header h1 {
-	display: inline;
-	font-size: 32px;
-}
-
-header h1 a:link, header h1 a:visited {
-	color: #444;
-	text-decoration: none;
-}
-
-header h2 {
-	font-size: 16px;
-	font-style: italic;
-	color: #999;
-}
-
-#main {
-	margin: 0 0 20px;
-}
-
-#add {
-	margin: 0 0 20px;
-}
-
-#add textarea {
-	height: 30px;
-	width: 550px;
-	padding: 5px;
-	border: 1px solid #ddd;
-}
-
-#add input {
-	height: 45px;
-	width: 90px;
-	margin: -30px 0 0;
-	border: 1px solid #ddd;
-	background: white;
-}
-
-#add input[type=date],
-#edit input[type=date] {
-	height: 40px;
-	width: 150px;
-	margin: -28px 5px 0;
-	border: 1px solid #ddd;
-	background: white;
-}
-
-#edit textarea {
-	height: 30px;
-	width: 500px;
-	padding: 5px;
-	border: 1px solid #ddd;
-}
-
-#edit input[type=submit] {
-	height: 40px;
-	width: 100px;
-	margin: -35px 0 0;
-	border: 1px solid #ddd;
-	background: white;
-}
-
-#edit input[type=checkbox] {
-	height: 50px;
-	width: 20px;
-    margin-left: 5px;
-}
-
 article {
 	border: 1px solid #eee;
 	border-top: none;
 	padding: 15px 10px;
 }
 
-article:first-of-type {
-	border: 1px solid #eee;
-}
+article.complete        { background: #dafee3; }
 
-article:nth-child(even) {
-	background: #fafafa;
-}
+article:first-of-type   { border: 1px solid #eee; }
 
-article.complete {
-	background: #dafee3;
-}
+article:nth-child(even) { background: #fafafa; }
 
-article span {
-	font-size: 0.8em;
-}
 
-p {
-	margin: 0 0 5px;
-}
-
-.meta {
-	font-size: 0.8em;
-	font-style: italic;
-	color: #888;
-}
-
-.links {
-	font-size: 1.8em;
-	line-height: 0.8em;
-	float: right;
-	margin: -10px 0 0;
-}
-
-.links a {
-	display: block;
-	text-decoration: none;
-}
+a#cancel { margin-left: 10px; }
 
 
 /*** Flash ***/
 
 div#flash {
     border: 1px solid #e5e5e5;
+    border-radius: 5px;
     padding: 0;
     margin-bottom: 20px;
 }
@@ -137,4 +30,4 @@ div.flash {
 }
 
 .notice { color: green; background: #eeffee; border: 1px solid green; }
-.error  { color: red;   background: #ffeeee; border: 1px solid red;  }
+.error  { color: red;   background: #ffeeee; border: 1px solid red;   }

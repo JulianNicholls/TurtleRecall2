@@ -2,22 +2,27 @@ doctype html
 html lang='en'
   head
     meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
     title #@title | #{SITE_TITLE}
-    link href="/reset.css" rel="stylesheet"
-    link href="/style.css" rel="stylesheet"
-    link href="/rss.xml"   rel="alternate" type="application/rss+xml"
+    link href="/css/bootstrap.min.css" rel="stylesheet"
+    link href="/css/style.css" rel="stylesheet"
+    link href="/rss.xml" rel="alternate" type="application/rss+xml"
     
   body
-    header
+    div.page-header
       h1
-        a href="/" Turtle Recall2
-      h2 #{SITE_DESCRIPTION}
+        a> href="/" #{SITE_TITLE}
+        small #{SITE_DESCRIPTION}
         
-    div#main
+    div#main.container
       == styled_flash
       == yield
 
-    footer
-      ' An app originally from
-      a href="http://net.tutsplus.com" Nettuts+
-      | . Retyped and extended by Julian Nicholls 2013.
+    footer.text-center
+      h5
+        ' An app originally from
+        a href="http://net.tutsplus.com" Nettuts+
+        | . Retyped and extended by Julian Nicholls 2013.
+      
+    script src="//code.jquery.com/jquery.js"
+    script src="/js/bootstrap.min.js"

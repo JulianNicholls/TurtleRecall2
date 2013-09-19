@@ -1,16 +1,37 @@
 - if @note
-  form#edit role="form" action="/#{@note.id}" method="POST"
+  form.form-horizontal role="form" action="/#{@note.id}" method="POST"
+    fieldset
+      legend Edit Shell
     input type="hidden" name="_method" value="put"
-    textarea name="content"
-      =@note.content
-    - if @note.complete
-      input type="checkbox" name="complete" checked="checked"
-    - else
-      input type="checkbox" name="complete"
+    div.form-group
+      label.col-md-2.control-label for="content" What to do
+      div.col-md-8
+        textarea#content.form-control name='content' rows="3" placeholder="Your shell..."
+          =@note.content
 
-    input type="date" name="due_at" value="#{@note.due_at.strftime( '%Y-%m-%d' )}"
-    input type="submit" value="Update"
-  p
-    a href="/#{@note.id}/delete" Delete
+    div.form-group
+      label.col-md-2.control-label for="due_at" By when
+      div.col-md-8
+        input#due_at.form-control type="date" name="due_at" value="#{@note.due_at.strftime( '%Y-%m-%d' )}"
+          
+    div.form-group
+      div.col-md-offset-2.col-md-10
+        div.checkbox
+          label
+            - if @note.complete
+              input type="checkbox" name="complete" checked="checked" Complete
+            - else
+              input type="checkbox" name="complete" Complete
+
+    div.form-group
+      div.col-md-offset-2.col-md-2
+        button.btn.btn-primary type="submit"
+          span.glyphicon.glyphicon-save>
+          | Update Shell
+      div.col-md-2
+        a.btn.btn-danger href="/#{@note.id}/delete"
+          span.glyphicon.glyphicon-remove>
+          | Delete Shell            
+    
 - else
   p Shell not found.

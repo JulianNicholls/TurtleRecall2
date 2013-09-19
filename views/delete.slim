@@ -1,13 +1,16 @@
 - if @note
   p 
-    ' Are you sure you want to delete the following note:
-    em
-      =@note.content
+    ' Are you sure you want to delete the following note:<br>
+    =@note.content
       
   form action="/#{@note.id}" method="POST"
     input type="hidden" name="_method" value="delete"
-    input type="submit" value="Yes, delete it"
-    a< href="/#{@note.id}" Cancel
+    button.btn.btn-danger type="submit"
+      span.glyphicon.glyphicon-remove>
+      | Yes, delete it
+    a#cancel.btn.btn-warning href="/#{@note.id}" 
+      span.glyphicon.glyphicon-arrow-left>
+      | Cancel
 - else
   p Shell not found
   

@@ -1,24 +1,38 @@
 section#add
-  form action='/' method='POST'
-    textarea name='content' placeholder="Your shell..."
-    input type="date" name="due_at"
-    input type="submit" value="Add Shell"
+  form.form-horizontal action='/' method='POST'
+    fieldset
+      legend Add New Shell
+      
+      div.form-group
+        label.col-md-2.control-label for="content" What to do
+        div.col-md-8
+          textarea#content.form-control name='content' rows="3" placeholder="Your shell..."
+          
+      div.form-group
+        label.col-md-2.control-label for="due_at" By when
+        div.col-md-8
+          input#due_at.form-control type="date" name="due_at"
+
+      div.form-group
+        div.col-md-offset-2.col-md-10
+          button.btn.btn-primary type="submit" 
+          span.glyphicon.glyphicon-save>
+          | Add Shell
 
 - @notes.each do |note|
-  article class="#{note.complete ? 'complete' : ''}"
-    p
+  article class="#{note.complete ? 'row complete' : 'row'}"
+    div.col-md-10
       => note.content
-      span
-        a href="/#{note.id}" [edit]
-    p.links
+      a href="/#{note.id}" [edit]<br>
+      small
+        ' Created 
+        = note.created_at.strftime( "%d-%b-%Y %H:%M" )
+        - if note.due_at
+          ' , Due on
+          => note.due_at.strftime( "%d-%b-%Y" )
+        - if note.done_at
+          ' , Completed 
+          => note.done_at.strftime( "%d-%b-%Y %H:%M" )      
+
+    div.col-md-2.text-right
       a href="/#{note.id}/complete" title="Toggle Complete" &#8623;
-    p.meta
-      ' Created 
-      = note.created_at.strftime( "%d-%b-%Y %H:%M" )
-      - if note.due_at
-        ' , Due on
-        => note.due_at.strftime( "%d-%b-%Y" )
-      - if note.done_at
-        ' , Completed 
-        => note.done_at.strftime( "%d-%b-%Y %H:%M" )
-      
