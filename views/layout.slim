@@ -14,10 +14,16 @@ html lang='en'
       h2 #{SITE_DESCRIPTION}
         
     div#main
+      = styled_flash
       - if flash[:notice]
         p.notice =flash[:notice]
+      - else
+        p.notice No flash[:notice]
+        
       - if flash[:error]
         p.error =flash[:error]
+      - else
+        p.error No flash[:error]
         
       == yield
 

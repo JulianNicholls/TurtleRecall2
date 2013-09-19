@@ -4,16 +4,19 @@ require 'data_mapper'
 require 'sass'
 require 'slim'
 require 'builder'
-require 'sinatra/flash'
+require 'rack-flash'
 # require 'sinatra/redirect_with_flash'
 
 
 SITE_TITLE       = "Turtle Recall2"
 SITE_DESCRIPTION = "'cause you need to remember when you're that old"
 
-use Rack::Session::Cookie, 
-  :expire_after => 60,     # One minute should cover it.
-  :secret => 'JGNTR2'      # Finally, an actual secret
+enable :sessions
+use Rack::Flash
+
+#use Rack::Session::Cookie, 
+#  :expire_after => 60,     # One minute should cover it.
+#  :secret => 'JGNTR2'      # Finally, an actual secret
     
 
 DataMapper::setup( :default, "sqlite3://#{Dir.pwd}/recall.db" )
