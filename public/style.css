@@ -111,5 +111,20 @@ p {
 	text-decoration: none;
 }
 
-.notice { color: green; }
-.error  { color: red; }
+
+/*** Flash ***/
+
+div#flash {
+    border: 1px solid #e5e5e5;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+div.flash {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 20px;
+}
+
+.notice { color: green; background: #eeffee; border: 1px solid green; }
+.error  { color: red;   background: #ffeeee; border: 1px solid red;  }
