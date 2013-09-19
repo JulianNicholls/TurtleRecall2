@@ -1,0 +1,24 @@
+- if @note
+  form.horizontal role="form"
+    input type="hidden" name="_method" value="put"
+    div.form-group
+      label.col-md-2.control-label.sr-only for="content" 
+        To Do
+      div.col-md-10
+        textarea#content.form-control name="content" rows="3"
+          =@note.content
+        
+    div.form-group
+      div.col-md-offset-1.col-md-11
+        div.checkbox
+          label
+            input> type="checkbox" name="complete"/
+            | Complete
+        
+    div.form-group
+      div.col-md-offset-1.col-md-11
+        button.btn.btn-primary type="submit"
+          span> class="glyphicon. glyphicon-ok"
+          | Update
+- else
+  p Note not found.
