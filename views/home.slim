@@ -1,6 +1,7 @@
 section#add
   form action='/' method='POST'
     textarea name='content' placeholder="Your shell..."
+    input type="date" name="due_at"
     input type="submit" value="Add Shell"
 
 - @notes.each do |note|
@@ -13,4 +14,11 @@ section#add
       a href="/#{note.id}/complete" title="Toggle Complete" &#8623;
     p.meta
       ' Created 
-      =note.created_at.strftime( "%d-%b-%Y %H:%M" )
+      = note.created_at.strftime( "%d-%b-%Y %H:%M" )
+      - if note.due_at
+        ' , Due on
+        => note.due_at.strftime( "%d-%b-%Y" )
+      - if note.done_at
+        ' , Completed 
+        => note.done_at.strftime( "%d-%b-%Y %H:%M" )
+      

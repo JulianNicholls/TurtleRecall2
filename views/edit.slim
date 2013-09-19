@@ -8,6 +8,7 @@
     - else
       input type="checkbox" name="complete"
 
+    input type="date" name="due_at" value="#{@note.due_at.strftime( '%Y-%m-%d' )}"
     input type="submit" value="Update"
   p
     a href="/#{@note.id}/delete" Delete

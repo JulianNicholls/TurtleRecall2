@@ -71,10 +71,12 @@ end
   
 post '/' do     # Add a shell
   n = Note.new
-  n.content = params[:content]
+  
+  n.content    = params[:content]
+  n.complete   = 0
+  n.due_at     = params[:due_at]
   n.created_at = Time.now
   n.updated_at = Time.now
-#  n.due_at = params[:due_at]
 
   if n.save
     redirect '/', :notice => "Shell Added."
@@ -98,10 +100,11 @@ end
 
 put '/:id' do   # Update
   n = Note.get params[:id]
-  n.content  = params[:content]
-  n.complete = params[:complete] ? 1 : 0
+  n.content    = params[:content]
+  n.complete   = params[:complete] ? 1 : 0
+  n.due_at     = params[:due_at]
+  n.done_at    = Time.now if n.complete
   n.updated_at = Time.now
-#  n.due_at = params[:due_at]
 
   if n.save
     redirect '/', :notice => "Shell Updated."
