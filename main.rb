@@ -63,6 +63,7 @@ get '/none' do  # Special place for an empty list because flash[...] only works 
   slim :home
 end
 
+
 get '/rss.xml' do   # Give an RSS feed
   @notes = Note.all :order => :id.desc   # This will become :due_at.asc
   builder :rss
@@ -100,6 +101,7 @@ end
 
 put '/:id' do   # Update
   n = Note.get params[:id]
+  
   n.content    = params[:content]
   n.complete   = params[:complete] ? 1 : 0
   n.due_at     = params[:due_at]
@@ -139,6 +141,7 @@ end
 
 get '/:id/complete' do  # Mark complete
   n = Note.get params[:id]
+  
   n.complete   = n.complete ? 0 : 1 # Flip it
   n.done_at    = n.complete ? Time.now : nil
   n.updated_at = Time.now
