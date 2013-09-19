@@ -1,24 +1,16 @@
 section#add
-  form#add.form-inline role="form" action='/' method='POST'
-    div.form-group
-      label.sr-only for='content' Content
-      textarea#content.form-control rows="2" name='content'
-    button.btn.btn-primary type="submit" Add Shell
+  form action='/' method='POST'
+    textarea name='content' placeholder="Your shell..."
+    input type="submit" vale="Add Shell"
 
 - @notes.each do |note|
-  article class="#{note.complete ? 'row complete' : 'row'}"
-    div.col-md-8    
-      = note.content
-    div.col-md-2
-      div.btn-group.btn-group-sm
-        button.btn.btn-info
-          a href="/#{note.id}" Edit
-        button.btn class="#{note.complete ? 'btn-warning' : 'btn-success'}"
-          a href="/#{note.id}/complete" title="Toggle Complete" &#8623;
-        button.btn.btn-danger
-          span.glyphicon.glyphicon-delete
-          a href="/#{note.id}/delete"
-    div.col-md-2
-      small
-        ' Created 
-        =note.created_at.strftime( "%d-%b-%Y %H:%M" )
+  article class="#{note.complete ? 'complete' : ''}"
+    p
+      => note.content
+      span
+        a href="/#{note.id}" [edit]
+    p.links
+      a href="/#{note.id}/complete" title="Toggle Complete" &#8623;
+    p.meta
+      ' Created 
+      =note.created_at.strftime( "%d-%b-%Y %H:%M" )
