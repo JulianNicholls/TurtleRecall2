@@ -18,10 +18,7 @@
       div.col-md-offset-2.col-md-10
         div.checkbox
           label
-            - if @note.complete
-              input type="checkbox" name="complete" checked="checked" Complete
-            - else
-              input type="checkbox" name="complete" Complete
+            == complete_checkbox( @note )
 
     div.form-group
       div.col-md-offset-2.col-md-2

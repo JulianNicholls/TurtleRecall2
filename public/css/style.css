@@ -4,11 +4,11 @@ article {
 	padding: 15px 10px;
 }
 
-article.complete        { background: #dafee3; }
-
 article:first-of-type   { border: 1px solid #eee; }
 
 article:nth-child(even) { background: #fafafa; }
+
+article.complete        { background: #dafee3; }    /* Must be last in line! */
 
 
 a#cancel { margin-left: 10px; }

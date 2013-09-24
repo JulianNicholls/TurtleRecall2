@@ -39,6 +39,12 @@ DataMapper.finalize.auto_upgrade!
 helpers do
   include Rack::Utils
   alias_method :h, :escape_html
+  
+  def complete_checkbox note
+    '<input type="checkbox" name="complete" ' +
+     ('checked="checked"' if note.complete) +
+     '> Complete'
+  end
 end
 
 
